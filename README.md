@@ -35,8 +35,8 @@ Designed with scalability and maintainability in mind, the app follows **Clean A
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/cae2d873-a18d-41a0-846f-3f430d1b7511"/></td>
     <td><img src="https://github.com/user-attachments/assets/ea0d992a-7022-4529-925e-52301abf0929"/></td>
+    <td><img src="https://github.com/user-attachments/assets/cae2d873-a18d-41a0-846f-3f430d1b7511"/></td>
   </tr>
 </table>
 
