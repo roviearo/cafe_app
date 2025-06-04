@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserModel {
 
- String get id; DateTime? get updatedAt; String? get username; String get fullName; String get avatarUrl; String? get website;
+ String get id; DateTime? get updatedAt; String? get username; String get fullName; String get avatarUrl; String? get website; bool get isStaff;
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,16 +26,16 @@ $UserModelCopyWith<UserModel> get copyWith => _$UserModelCopyWithImpl<UserModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.id, id) || other.id == id)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.username, username) || other.username == username)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.avatarUrl, avatarUrl) || other.avatarUrl == avatarUrl)&&(identical(other.website, website) || other.website == website));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.id, id) || other.id == id)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.username, username) || other.username == username)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.avatarUrl, avatarUrl) || other.avatarUrl == avatarUrl)&&(identical(other.website, website) || other.website == website)&&(identical(other.isStaff, isStaff) || other.isStaff == isStaff));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,updatedAt,username,fullName,avatarUrl,website);
+int get hashCode => Object.hash(runtimeType,id,updatedAt,username,fullName,avatarUrl,website,isStaff);
 
 @override
 String toString() {
-  return 'UserModel(id: $id, updatedAt: $updatedAt, username: $username, fullName: $fullName, avatarUrl: $avatarUrl, website: $website)';
+  return 'UserModel(id: $id, updatedAt: $updatedAt, username: $username, fullName: $fullName, avatarUrl: $avatarUrl, website: $website, isStaff: $isStaff)';
 }
 
 
@@ -46,7 +46,7 @@ abstract mixin class $UserModelCopyWith<$Res>  {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) _then) = _$UserModelCopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime? updatedAt, String? username, String fullName, String avatarUrl, String? website
+ String id, DateTime? updatedAt, String? username, String fullName, String avatarUrl, String? website, bool isStaff
 });
 
 
@@ -63,7 +63,7 @@ class _$UserModelCopyWithImpl<$Res>
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? updatedAt = freezed,Object? username = freezed,Object? fullName = null,Object? avatarUrl = null,Object? website = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? updatedAt = freezed,Object? username = freezed,Object? fullName = null,Object? avatarUrl = null,Object? website = freezed,Object? isStaff = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -71,7 +71,8 @@ as DateTime?,username: freezed == username ? _self.username : username // ignore
 as String?,fullName: null == fullName ? _self.fullName : fullName // ignore: cast_nullable_to_non_nullable
 as String,avatarUrl: null == avatarUrl ? _self.avatarUrl : avatarUrl // ignore: cast_nullable_to_non_nullable
 as String,website: freezed == website ? _self.website : website // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,isStaff: null == isStaff ? _self.isStaff : isStaff // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
@@ -82,7 +83,7 @@ as String?,
 
 
 class _UserModel implements UserModel {
-  const _UserModel({required this.id, this.updatedAt, this.username, required this.fullName, required this.avatarUrl, this.website});
+  const _UserModel({required this.id, this.updatedAt, this.username, required this.fullName, required this.avatarUrl, this.website, required this.isStaff});
   
 
 @override final  String id;
@@ -91,6 +92,7 @@ class _UserModel implements UserModel {
 @override final  String fullName;
 @override final  String avatarUrl;
 @override final  String? website;
+@override final  bool isStaff;
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
@@ -102,16 +104,16 @@ _$UserModelCopyWith<_UserModel> get copyWith => __$UserModelCopyWithImpl<_UserMo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.id, id) || other.id == id)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.username, username) || other.username == username)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.avatarUrl, avatarUrl) || other.avatarUrl == avatarUrl)&&(identical(other.website, website) || other.website == website));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.id, id) || other.id == id)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&(identical(other.username, username) || other.username == username)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.avatarUrl, avatarUrl) || other.avatarUrl == avatarUrl)&&(identical(other.website, website) || other.website == website)&&(identical(other.isStaff, isStaff) || other.isStaff == isStaff));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,updatedAt,username,fullName,avatarUrl,website);
+int get hashCode => Object.hash(runtimeType,id,updatedAt,username,fullName,avatarUrl,website,isStaff);
 
 @override
 String toString() {
-  return 'UserModel(id: $id, updatedAt: $updatedAt, username: $username, fullName: $fullName, avatarUrl: $avatarUrl, website: $website)';
+  return 'UserModel(id: $id, updatedAt: $updatedAt, username: $username, fullName: $fullName, avatarUrl: $avatarUrl, website: $website, isStaff: $isStaff)';
 }
 
 
@@ -122,7 +124,7 @@ abstract mixin class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Re
   factory _$UserModelCopyWith(_UserModel value, $Res Function(_UserModel) _then) = __$UserModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime? updatedAt, String? username, String fullName, String avatarUrl, String? website
+ String id, DateTime? updatedAt, String? username, String fullName, String avatarUrl, String? website, bool isStaff
 });
 
 
@@ -139,7 +141,7 @@ class __$UserModelCopyWithImpl<$Res>
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? updatedAt = freezed,Object? username = freezed,Object? fullName = null,Object? avatarUrl = null,Object? website = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? updatedAt = freezed,Object? username = freezed,Object? fullName = null,Object? avatarUrl = null,Object? website = freezed,Object? isStaff = null,}) {
   return _then(_UserModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -147,7 +149,8 @@ as DateTime?,username: freezed == username ? _self.username : username // ignore
 as String?,fullName: null == fullName ? _self.fullName : fullName // ignore: cast_nullable_to_non_nullable
 as String,avatarUrl: null == avatarUrl ? _self.avatarUrl : avatarUrl // ignore: cast_nullable_to_non_nullable
 as String,website: freezed == website ? _self.website : website // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,isStaff: null == isStaff ? _self.isStaff : isStaff // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

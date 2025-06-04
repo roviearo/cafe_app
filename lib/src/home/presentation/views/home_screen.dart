@@ -1,16 +1,47 @@
 import 'package:cafe_app/core/utils/dummy_data.dart';
 import 'package:cafe_app/core/utils/router.dart';
+import 'package:cafe_app/src/authentication/domain/entities/user.dart';
 import 'package:cafe_app/src/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:cafe_app/src/home/presentation/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    showProfileDialog(User user) {
+      return showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircleAvatar(backgroundImage: NetworkImage(user.avatarUrl)),
+                  Text(
+                    user.fullName,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  SizedBox(height: 10),
+                  FilledButton(onPressed: () {}, child: Text('Logout')),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    }
+
     return KeyboardDismisser(
       child: Scaffold(
         // floatingActionButton: FloatingActionButton(
@@ -23,7 +54,6 @@ class HomeScreen extends StatelessWidget {
           showUnselectedLabels: false,
           selectedItemColor: Theme.of(context).colorScheme.secondary,
           unselectedItemColor: Theme.of(context).colorScheme.outline,
-
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
@@ -32,7 +62,10 @@ class HomeScreen extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               label: 'Cart',
-              icon: Icon(Icons.shopping_bag_rounded),
+              icon: Badge(
+                label: Text('1'),
+                child: Icon(Icons.shopping_bag_rounded),
+              ),
             ),
             BottomNavigationBarItem(
               label: 'Favourite',
@@ -64,8 +97,11 @@ class HomeScreen extends StatelessWidget {
                         if (state is Authenticated) {
                           final user = state.user;
 
-                          return CircleAvatar(
-                            backgroundImage: NetworkImage(user.avatarUrl),
+                          return GestureDetector(
+                            onTap: () => showProfileDialog(user),
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(user.avatarUrl),
+                            ),
                           );
                         }
                         return CircleAvatar(child: Icon(Icons.person));

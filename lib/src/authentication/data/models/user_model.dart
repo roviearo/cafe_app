@@ -11,6 +11,7 @@ abstract class UserModel with _$UserModel {
     required String fullName,
     required String avatarUrl,
     String? website,
+    required bool isStaff,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -23,6 +24,7 @@ abstract class UserModel with _$UserModel {
       fullName: json['full_name'],
       avatarUrl: json['avatar_url'],
       website: json['website'] ?? '',
+      isStaff: json['is_staff'],
     );
   }
 }

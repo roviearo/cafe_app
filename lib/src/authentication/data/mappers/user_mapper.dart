@@ -9,10 +9,15 @@ extension UserModelMapper on UserModel {
     fullName: fullName,
     avatarUrl: avatarUrl,
     website: website,
+    isStaff: isStaff,
   );
 }
 
 extension UserMapper on User {
-  UserModel toModel() =>
-      UserModel(id: id, fullName: fullName, avatarUrl: avatarUrl);
+  UserModel toModel() => UserModel(
+    id: id,
+    fullName: fullName,
+    avatarUrl: avatarUrl,
+    isStaff: isStaff,
+  );
 }

@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class User {
   User({
     required this.id,
@@ -6,6 +7,7 @@ class User {
     required this.fullName,
     required this.avatarUrl,
     this.website,
+    required this.isStaff,
   });
 
   final String id;
@@ -14,6 +16,7 @@ class User {
   final String fullName;
   final String avatarUrl;
   final String? website;
+  final bool isStaff;
 
   User.empty()
     : this(
@@ -23,5 +26,6 @@ class User {
         fullName: '',
         avatarUrl: '',
         website: '',
+        isStaff: false,
       );
 }
